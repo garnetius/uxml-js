@@ -403,6 +403,10 @@ static newCommentNode (value) {
   return new UXMLNode(UXML.nodeType.comment, value);
 }}
 
+Object.defineProperties (UXMLDocument, {
+  beginning: {value: '<?xml version="1.0" encoding="utf-8"?>'}
+});
+
 /* =============================================================================
 // Parser
 // -------------------------------------------------------------------------- */
