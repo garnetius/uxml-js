@@ -1,6 +1,8 @@
 UXML JS
 =======
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 Universal eXtensible Markup Language.
 
 A minimalist XML subset flavored for markup exchange:
