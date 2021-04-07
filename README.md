@@ -58,7 +58,7 @@ Consider:
 ```js
 /* Some really twisted query */
 const tag = node.firstTag().nthTag(42).prev(100)
-.nextTag(1000).prevTag("cave").super().tag("treasure");
+.nextTag(1000).prevTag("cave").super().lastTag("treasure");
 
 if (!tag.isNull()) {
   console.log ("👑 Found! 💰💰💰");
