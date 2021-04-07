@@ -57,11 +57,11 @@ constructor (type, data, attrs=undefined) {
 
   /* Implemented as a double-linked list */
   Object.defineProperties (this, {
-    previousNode: {value: null, writable: type !== UXML.nodeType.nul},
-    superNode:    {value: null, writable: type !== UXML.nodeType.nul},
-    firstNode:    {value: null, writable: type !== UXML.nodeType.nul},
-    lastNode:     {value: null, writable: type !== UXML.nodeType.nul},
-    nextNode:     {value: null, writable: type !== UXML.nodeType.nul}
+    prevNode:  {value: null, writable: type !== UXML.nodeType.nul},
+    superNode: {value: null, writable: type !== UXML.nodeType.nul},
+    firstNode: {value: null, writable: type !== UXML.nodeType.nul},
+    lastNode:  {value: null, writable: type !== UXML.nodeType.nul},
+    nextNode:  {value: null, writable: type !== UXML.nodeType.nul}
   });
 }
 
@@ -84,7 +84,7 @@ $navigate (dir, num) {
   let ret = this;
 
   while (num !== 0) {
-    if      (dir === -1) ret = ret.previousNode;
+    if      (dir === -1) ret = ret.prevNode;
     else if (dir ===  0) ret = ret.superNode;
     else if (dir ===  1) ret = ret.nextNode;
 
@@ -102,7 +102,7 @@ super (num=1) {
   return this.$navigate (0, num);
 }
 
-previous (num=1) {
+prev (num=1) {
   return this.$navigate (-1, num);
 }
 
@@ -112,7 +112,7 @@ next (num=1) {
 
 /* ===--------------------------------------------------------------------------
 // Skip non-tag nodes while traversing */
-$navigateTag (dir, filter) {
+$navigateTag (back, filter) {
   let count = false;
 
   if (typeof filter === "number") {
@@ -124,15 +124,14 @@ $navigateTag (dir, filter) {
   let ret = this;
 
   while (true) {
-    if      (dir === -1) ret = ret.previousNode;
-    else if (dir ===  0) ret = ret.superNode;
-    else if (dir ===  1) ret = ret.nextNode;
+    if (back) ret = ret.prevNode;
+    else ret = ret.nextNode;
 
     if (ret === null) {
       return nullNode;
     }
 
-    if (dir !== 0 && ret.type !== UXML.nodeType.tag) {
+    if (ret.type !== UXML.nodeType.tag) {
       continue;
     }
 
@@ -150,16 +149,12 @@ $navigateTag (dir, filter) {
   return ret;
 }
 
-superTag (filter=1) {
-  return this.$navigateTag (0, filter);
-}
-
-previousTag (filter=1) {
-  return this.$navigateTag (-1, filter);
+prevTag (filter=1) {
+  return this.$navigateTag (true, filter);
 }
 
 nextTag (filter=1) {
-  return this.$navigateTag (1, filter);
+  return this.$navigateTag (false, filter);
 }
 
 /* ===--------------------------------------------------------------------------
@@ -194,12 +189,12 @@ lastTag (name="") {
   let ret = this.last();
 
   if (ret.type !== UXML.nodeType.tag) {
-    ret = ret.previousTag();
+    ret = ret.prevTag();
   }
 
   if (name.length !== 0) {
     if (name !== ret.name) {
-      ret = ret.previousTag (name);
+      ret = ret.prevTag (name);
     }
   }
 
@@ -268,7 +263,7 @@ forEachTag (func, that) {
 /* ===--------------------------------------------------------------------------
 // Detach node from its parent */
 detach() {
-  const prev = this.previousNode;
+  const prev = this.prevNode;
   const next = this.nextNode;
   const sup = this.superNode;
 
@@ -276,10 +271,10 @@ detach() {
   else prev.nextNode = next;
 
   if (next === null) sup.lastNode = prev;
-  else next.previousNode = prev;
+  else next.prevNode = prev;
 
   this.superNode = null;
-  this.previousNode = null;
+  this.prevNode = null;
   this.nextNode = null;
   --sup.size;
 
@@ -298,7 +293,7 @@ append (node) {
   }
 
   node.superNode = this;
-  node.previousNode = this.lastNode;
+  node.prevNode = this.lastNode;
 
   if (this.lastNode === null) this.firstNode = node;
   else this.lastNode.nextNode = node;
@@ -333,13 +328,13 @@ insert (node, ref=null) {
   }
 
   node.superNode = this;
-  node.previousNode = ref.previousNode;
+  node.prevNode = ref.prevNode;
 
-  if (ref.previousNode === null) this.firstNode = node;
-  else node.previousNode.nextNode = node;
+  if (ref.prevNode === null) this.firstNode = node;
+  else node.prevNode.nextNode = node;
 
   node.nextNode = ref;
-  ref.previousNode = node;
+  ref.prevNode = node;
   ++this.size;
 
   return this;
