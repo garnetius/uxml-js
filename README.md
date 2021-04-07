@@ -48,7 +48,7 @@ const container = node.super();
 const container = node.super(2);
 
 /* A container node of the specified name */
-const container = node.super("articles");
+const container = node.superTag("articles");
 ```
 
 Note that much like with XPath it is not necessary to check for result of particular traversal method when constructing complex queries.
