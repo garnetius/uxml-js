@@ -149,6 +149,24 @@ $navigateTag (back, filter) {
   return ret;
 }
 
+superTag (name) {
+  let ret = this;
+
+  while (true) {
+    ret = ret.superNode;
+
+    if (ret === null) {
+      return nullNode;
+    }
+
+    if (name === ret.name) {
+      break;
+    }
+  }
+
+  return ret;
+}
+
 prevTag (filter=1) {
   return this.$navigateTag (true, filter);
 }

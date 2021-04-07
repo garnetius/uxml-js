@@ -46,6 +46,9 @@ const container = node.super();
 
 /* A container node two levels above */
 const container = node.super(2);
+
+/* A container node of the specified name */
+const container = node.super("articles");
 ```
 
 Note that much like with XPath it is not necessary to check for result of particular traversal method when constructing complex queries.
