@@ -8,6 +8,7 @@ Micro eXtensible Markup Language.
 **XML** is a huge and bloated standard, carrying a lot of complexity and legacy burden within itself, like SGML, DTDs (although recent versions of XML has gotten rid of that garbage, finally), or namespaces. It goes well beyond just data representation, attempting to define grammatical rules on how entire markup languages are constructed. It can be argued that XML mixes up *data* design and *language* design in unnecessary and redundant ways, not being particularly good at either one.
 
 > ”XML combines the efficiency of text files with the readability of binary files”
+>
 > — Unknown genius.
 
 But at its core XML is fairly simple. And if one looks at XML syntax from a different perspective, ignoring all complexity and requirements of the original standard, a surprisingly beautiful picture can emerge.
