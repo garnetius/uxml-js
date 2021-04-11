@@ -1,7 +1,7 @@
 /* ================================= $ J $ =====================================
 // <uxml.mjs>
 //
-// UXML: Universal XML parser and writer.
+// UXML: micro XML parser and serializer.
 //
 // A minimalist XML subset flavored for markup exchange:
 //
