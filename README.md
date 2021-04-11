@@ -7,11 +7,12 @@ Micro eXtensible Markup Language.
 
 **XML** is a huge and bloated standard, carrying a lot of complexity and legacy burden within itself, like SGML, DTDs (although recent versions of XML has gotten rid of that garbage, finally), or namespaces. It goes well beyond just data representation, attempting to define grammatical rules on how entire markup languages are constructed. It can be argued that XML mixes up *data* design and *language* design in unnecessary and redundant ways, not being particularly good at either one.
 
-> ”XML combines the efficiency of text files with the readability of binary files” — Unknown genius.
+> ”XML combines the efficiency of text files with the readability of binary files”
+> — Unknown genius.
 
 But at its core XML is fairly simple. And if one looks at XML syntax from a different perspective, ignoring all complexity and requirements of the original standard, a surprisingly beautiful picture can emerge.
 
-**UXML** is a minimalist subset of **XML** flavoured specifically for markup data exchange:
+**UXML** is a minimalist subset of **XML** flavoured specifically for markup exchange:
 
   * Supported node types: tags, text and `CDATA` sections, comment nodes. XML namespace prefixes are recognized, but aren’t treated in any special way. It is up to *application layer* how to deal with the prefixed elements.
   * Recognized entity symbols: `&amp`, `&lt`, `&gt`, `&quot`, `&apos`, decimal (`&#65`) and hexadecimal (`&#x41`) encoded code points.
