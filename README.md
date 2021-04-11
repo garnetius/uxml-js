@@ -3,7 +3,7 @@ UXML JS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-Micro eXtensible Markup Language.
+Micro extensible markup language.
 
 **XML** is a huge and bloated standard, carrying a lot of complexity and legacy burden within itself, like SGML, DTDs (although recent versions of XML has gotten rid of that garbage, finally), or namespaces. It goes well beyond just data representation, attempting to define grammatical rules on how entire markup languages are constructed. It can be argued that XML mixes up *data* design and *language* design in unnecessary and redundant ways, not being particularly good at either one.
 
