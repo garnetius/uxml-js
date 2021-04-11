@@ -26,14 +26,19 @@ XML documents that can be easily processed with **UXML**‘s simple XML parser:
 
 ```xml
 <div class="70s-it-flyer">
-  <p><strong>Rusty Nuts ‘n‘ Bolts</strong> offers fine services for your Big Data hosting!</p>
+  <p><strong>Rusty Nuts ‘n‘ Bolts</strong> offers fine services
+  for your Big Data hosting!</p>
   <ul>
-    <li>A large selection of software platforms, including CP/M, MS-DOS, and UNIX™. (Yes, the <em>original</em> one!)</li>
-    <li>Automated backups on 8” floppy disks! (We have <em>lots</em> of these.)</li>
-    <li>Unmarked facilities guarded by <big>.50 caliber</big> turrets. Big data — big guns.</li>
+    <li>A large selection of software platforms, including CP/M, MS-DOS,
+    and UNIX™. (Yes, the <em>original</em> one!)</li>
+    <li>Automated backups on 8” floppy disks! (We have <em>lots</em>
+    of these.)</li>
+    <li>Unmarked facilities guarded by <big>.50 caliber</big> turrets.
+    Big data — big guns.</li>
     <li>Security issues fixed with a hammer and a screwdriver.</li>
   </ul>
-  <p>Feeling threatened? Call us at <tel>+1-800-MY-RUSTY</tel> and secure one of our exclusive limited-time offers today!</p>
+  <p>Feeling threatened? Call us at <tel>+1-800-MY-RUSTY</tel> and secure
+  one of our exclusive limited-time offers today!</p>
 </div>
 ```
 
@@ -41,9 +46,13 @@ XML documents that can be easily processed with **UXML**‘s simple XML parser:
 <publications>
   <publication id="pub-1" date="1585737310">
     <header>Tensions Rise at Capitol</header>
-    <p>Thousands of protesters gathered on Capitol Hill with intention to build a wall around Donald Trump in order to make America great again.</p>
-    <p>Police is using water guns in attempt to control the situation, albeit with mixed results.</p>
-    <footer>Follow us on <a href="#" class="social-link">Twitter</a> for updates.</footer>
+    <p>Thousands of protesters gathered on Capitol Hill with intention
+    to build a wall around Donald Trump in order to make
+    America great again.</p>
+    <p>Police is using water guns in attempt to control the situation,
+    albeit with mixed results.</p>
+    <footer>Follow us on <a href="#" class="social-link">Twitter</a>
+    for updates.</footer>
   </publication>
   <publication id="pub-2" date="1591922408">
     <h1>Weather Report</h1>
